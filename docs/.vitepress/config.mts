@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Revue tp2 LTN AC",
+  title: "Revue TP2",
   description: "revue code",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

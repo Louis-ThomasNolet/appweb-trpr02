@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "Revue tp2 LTN AC"
+  name: "Revue TP2"
   text: "revue code"
   tagline: My great project tagline
   actions:
