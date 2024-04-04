@@ -12,7 +12,9 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "vue": "^3.4.15"
+    "bootstrap": "^5.3.3",
+    "bootstrap-vue": "^2.23.1",
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "vitepress": "^1.0.2"
