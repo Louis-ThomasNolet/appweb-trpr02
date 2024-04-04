@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Revue TP2",
-  description: "revue code",
+  title: "revue code",
+  description: "revue tp2",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

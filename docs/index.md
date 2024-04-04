@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Revue TP2"
-  text: "revue code"
+  name: "revue code"
+  text: "revue tp2"
   tagline: My great project tagline
   actions:
     - theme: brand
