@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Bataille from "./components/Bataille.vue";
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
