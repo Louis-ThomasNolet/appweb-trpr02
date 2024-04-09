@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Bataille from "./components/Bataille.vue";
+</script>
 
 <template>
   <header>
@@ -10,6 +12,11 @@
       <a>LeaderBoard</a>
     </nav>
   </header>
+  <body>
+    <main>
+      <Bataille />
+    </main>
+  </body>
 </template>
 
 <style scoped>
