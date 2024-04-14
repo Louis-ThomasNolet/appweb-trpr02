@@ -1,21 +1,17 @@
 <script setup lang="ts">
 import Bataille from "./components/Bataille.vue";
-import { RouterLink, RouterView } from "vue-router";
+import NavigationBar from "./components/NavigationBar.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
   <header>
-    <nav>
-      <a>Star Battle</a>
-      |
-      <a>Accueil</a>
-      |
-      <a>LeaderBoard</a>
-    </nav>
+    <NavigationBar />
   </header>
   <body>
     <main>
       <Bataille />
+      <RouterView />
     </main>
   </body>
 </template>
