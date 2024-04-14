@@ -7,17 +7,12 @@ export default defineConfig({
   base:'/appweb-trpr02/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
     sidebar: [
       {
         text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Louis-Thomas Nolet', link: '/louis-thomas-nolet' },
+          { text: 'Alexis Champoux', link: '/alexis-champoux' }
         ]
       }
     ],
