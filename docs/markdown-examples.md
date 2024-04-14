@@ -7,4 +7,5 @@ outline: deep
 
 * ### il a commencé les components
 * ### il a commencé les vues
-* ### il a commencé a faire les interfaces et trouver un logo pour le site
+* ### il a commencé a faire les interfaces
+* ### il a trouvé un logo pour le site
