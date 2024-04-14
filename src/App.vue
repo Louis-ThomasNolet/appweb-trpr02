@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-
+import Bataille from "./components/Bataille.vue";
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
@@ -13,6 +13,11 @@ import { RouterLink, RouterView } from 'vue-router'
       <a>LeaderBoard</a>
     </nav>
   </header>
+  <body>
+    <main>
+      <Bataille />
+    </main>
+  </body>
 </template>
 
 <style scoped>
