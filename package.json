@@ -9,11 +9,15 @@
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "backend": "json-server --watch ./backend/db.default.json"
   },
   "dependencies": {
+    "axios": "^1.6.8",
+    "backend": "^0.0.0",
     "bootstrap": "^5.3.3",
     "bootstrap-vue": "^2.23.1",
+    "json-server": "^1.0.0-alpha.23",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
