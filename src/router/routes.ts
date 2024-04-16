@@ -1,15 +1,12 @@
 import type { RouteRecordRaw } from 'vue-router'
 import ScoreBoard from '../views/ScoreBoard.vue'
-import Bataille from '../components/Bataille.vue' 
-import Accueil from '../views/Accueil.vue'
-
 
 const routes: Array<RouteRecordRaw> = [
 
     {
         path: '/bataille',
         name: 'Bataille',
-        component: Bataille,
+        component: () => import('../views/BatailleViews.vue'),
         props: true
     },
     {
@@ -19,9 +16,9 @@ const routes: Array<RouteRecordRaw> = [
         props: true
     },
     {
-        path: '/accueil',
+        path: '/',
         name: 'Accueil',
-        component: Accueil,
+        component: () => import('../views/Accueil.vue'),
         props: true
     }
     ]

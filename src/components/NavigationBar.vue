@@ -6,9 +6,9 @@
           <RouterLink class="nav-link" id="accueil" to="/">Accueil</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" id="score" :to="{ name: 'Score' }"
-            >Score</RouterLink
-          >
+          <RouterLink class="nav-link" id="score" :to="{ name: 'Score' }">
+            Score
+          </RouterLink>
         </li>
       </ul>
     </div>
