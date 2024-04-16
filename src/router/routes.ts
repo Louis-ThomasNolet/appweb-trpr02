@@ -1,5 +1,4 @@
 import type { RouteRecordRaw } from 'vue-router'
-import ScoreBoard from '../views/ScoreBoard.vue'
 
 const routes: Array<RouteRecordRaw> = [
 
@@ -12,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/score',
         name: 'Score',
-        component: ScoreBoard,
+        component: () => import('../views/ScoreBoard.vue'),
         props: true
     },
     {
