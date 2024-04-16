@@ -10,6 +10,11 @@
             Score
           </RouterLink>
         </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" id="bataille" :to="{ name: 'Bataille' }">
+            Bataille
+          </RouterLink>
+        </li>
       </ul>
     </div>
   </nav>
