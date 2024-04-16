@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Louis-Thomas Nolet
-      link: /markdown-examples
+      link: /louis-thomas-nolet
     - theme: alt
       text: Alexis Champoux
-      link: /api-examples
+      link: /alexis-champoux
 
 features:
   - title: Feature A
