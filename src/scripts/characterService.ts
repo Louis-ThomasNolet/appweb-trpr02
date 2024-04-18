@@ -6,11 +6,11 @@ export default class CharacterService {
     constructor() {
         this.API_URL = 'http://localhost:3000';
     }
-    async getShipList(): Promise<any[]> {
+    async getCharacterList(): Promise<any[]> {
         const response: AxiosResponse<any[]> = await axios.get(this.API_URL + CHARACTER_PATH);
         return response.data;
     }
-    async getShip(characterId: number): Promise<any> {   
+    async getCharacter(characterId: number): Promise<any> {   
         const response: AxiosResponse<any> = await axios.get(this.API_URL + CHARACTER_PATH + '/' + characterId);
         return response.data;
     }

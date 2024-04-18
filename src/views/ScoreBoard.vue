@@ -5,7 +5,7 @@ import RankingService from "../scripts/rankingService";
 
 const service = new RankingService();
 
-const ranking = ref <Ranking[]> ([]);
+const ranking = ref<Ranking[]>([]);
 onMounted(async () => {
   try {
     console.log("Fetching data...");
