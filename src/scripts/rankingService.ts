@@ -13,4 +13,9 @@ export default class RankingService {
         const response: AxiosResponse<any[]> = await axios.get(this.API_URL + RANKING_PATH);
         return response.data;
     }
+
+    async addRanking(name: string, score: number): Promise<any> {
+        const response: AxiosResponse<any> = await axios.post(this.API_URL + RANKING_PATH, { name, score });
+        return response.data;
+    }
 }
