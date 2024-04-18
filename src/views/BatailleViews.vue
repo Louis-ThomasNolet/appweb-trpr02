@@ -49,8 +49,7 @@
                 <div
                   class="progress-bar"
                   role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
+                  style="width: 100%"
                   aria-valuemin="0"
                   aria-valuemax="100"
                 ></div>
@@ -69,8 +68,7 @@
                   <div
                     class="progress-bar"
                     role="progressbar"
-                    style="width: 25%"
-                    aria-valuenow="25"
+                    style="width: 100%"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
