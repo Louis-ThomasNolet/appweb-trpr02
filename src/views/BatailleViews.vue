@@ -81,4 +81,8 @@
     </div>
   </main>
 </template>
-<style></style>
+<style>
+div.card {
+  opacity: 0.9;
+}
+</style>
