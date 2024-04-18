@@ -13,7 +13,7 @@
             <router-link to="/bataille" class="nav-link">Bataille</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/classement" class="nav-link">
+            <router-link to="/score" class="nav-link">
               Classement
             </router-link>
           </li>
