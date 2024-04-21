@@ -29,7 +29,7 @@ const startGame = () => {
   );
   router.push({
     name: "Bataille",
-    params: { name: name.value, selectedShip: selectedShip.value },
+    query: { name: name.value, selectedShip: selectedShip.value },
   });
 };
 </script>
@@ -73,7 +73,7 @@ const startGame = () => {
                   <option
                     v-for="ship in ships"
                     :key="ship.id"
-                    :value="ship.name"
+                    :value="ship.id"
                   >
                     {{ ship.name }}
                   </option>

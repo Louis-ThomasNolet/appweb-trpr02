@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import Character from '../scripts/characters';
 
 const CHARACTER_PATH = '/characters';
 export default class CharacterService {
@@ -13,5 +14,10 @@ export default class CharacterService {
     async getCharacter(characterId: number): Promise<any> {   
         const response: AxiosResponse<any> = await axios.get(this.API_URL + CHARACTER_PATH + '/' + characterId);
         return response.data;
+    }
+    async getRandomCharacter(): Promise<Character> {
+        const characterList: any[] = await this.getCharacterList();
+        const randomIndex: number = Math.floor(Math.random() * characterList.length);
+        return characterList[randomIndex];
     }
 }
