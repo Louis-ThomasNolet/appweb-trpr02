@@ -41,7 +41,7 @@
       <div class="row">
         <div class="col">
           <div class="card border-0">
-            <div class="card-header text-white bg-primary">Nom du joueur</div>
+            <div class="card-header text-white bg-primary">Nom du joueur: {{ name }}</div>
             <div class="card-body text-white bg-dark">
               <p>Niveaux du joueur et nombre de crédit galactiques</p>
               <p>Vaisseau</p>
