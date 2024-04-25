@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
+import { ref, onMounted} from "vue";
+import { onBeforeRouteLeave, useRouter } from "vue-router";
 import ShipService from "../scripts/shipService";
 import Ship from "../scripts/ship";
 import CharacterService from "../scripts/characterService";
 import Character from "../scripts/characters";
+import ConfirmModal from "../components/ConfirmModal.vue";
+
+const triggerModal = ref(0);
 
 const router = useRouter();
 const route = router.currentRoute.value;
@@ -104,12 +107,9 @@ function attack() {
 
     if (attackSuccess) {
       player.value.selectedShip.vitality -= Math.floor(Math.random() * 4) + 3;
-      if (player.value.selectedShip.vitality <= 0) {
-        player.value.selectedShip.vitality = 0;
-        alert("Vous avez perdu");
       }
     }
-  }
+  
 
 };
 
@@ -144,12 +144,29 @@ function endMission() {
       taskNumber.value++;
       getRandomEnemy();
     } else {
+      /*
       alert("Vous avez gagné la partie avec " + player.value.credits + " crédits galactique");
+      router.push({ name: "Score" });*/
     }
   }
 
 };
-
+let redirectPage = "";
+let leave = false as boolean;
+function cancelConfirmed() {
+  leave = true;
+  router.push({ name: redirectPage });
+};
+onBeforeRouteLeave((to, from, next) =>{
+  if (!leave) {
+    triggerModal.value ++;
+  }else{
+    next();
+    
+  }
+ 
+  redirectPage = to.name as string;
+});
 /*
 pourrait etre une bonne idee?
 
@@ -159,7 +176,14 @@ function getRepairCost() : number {
 */
 </script>
 <template>
-  <main>
+        <ConfirmModal               
+          @onModalConfirmed="cancelConfirmed"
+          :trigger="triggerModal"
+          title="Attention"
+          body="Vos changements seront perdus. Voulez-vous vraiment quitter cette page ? "
+          cancelButton="Non"
+          confirmButton="Oui, quitter sans sauvegarder"/>
+  <div>
     <div class="container">
       <div class="row">
         <div class="col-7">
@@ -213,7 +237,7 @@ function getRepairCost() : number {
           </div>
         </div>
         <div class="col">
-          <div class="col">
+          < class="col">
             <div class="card border-0">
               <div class="card-header text-white bg-primary">{{ currentEnemy?.name }}</div>
               <div class="card-body text-white bg-dark">
@@ -229,10 +253,10 @@ function getRepairCost() : number {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
-  </main>
 </template>
 <style>
 div.card {
