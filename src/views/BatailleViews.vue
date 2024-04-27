@@ -6,8 +6,10 @@ import Ship from "../scripts/ship";
 import CharacterService from "../scripts/characterService";
 import Character from "../scripts/characters";
 import ConfirmModal from "../components/ConfirmModal.vue";
+import NotifyModal from "../components/NotifyModal.vue";
 
 const triggerModal = ref(0);
+const gameEnd = ref(0);
 
 const router = useRouter();
 const route = router.currentRoute.value;
@@ -88,6 +90,10 @@ async function getRandomEnemy() {
 
 //fonction qui permet d'attaquer 
 function attack() {
+  //debug
+  taskNumber.value = 5;
+  gameEnd.value++;
+
   if (currentEnemy.value.ship.vitality > 0 && player.value.selectedShip.vitality > 0) {
     //player attaque l'ennemi
     let attackChance = getAttackChance(player.value.level) as number;
@@ -107,10 +113,12 @@ function attack() {
 
     if (attackSuccess) {
       player.value.selectedShip.vitality -= Math.floor(Math.random() * 4) + 3;
+      if (player.value.selectedShip.vitality <= 0) {
+        player.value.selectedShip.vitality = 0;
+        gameEnd.value++;
       }
     }
-  
-
+  }
 };
 
 //fonction qui permet de recuperer la pourcentage de toucher lors d'une attaque
@@ -144,19 +152,20 @@ function endMission() {
       taskNumber.value++;
       getRandomEnemy();
     } else {
-      /*
-      alert("Vous avez gagné la partie avec " + player.value.credits + " crédits galactique");
-      router.push({ name: "Score" });*/
+      gameEnd.value++;
     }
   }
 
 };
 let redirectPage = "";
 let leave = false as boolean;
+
 function cancelConfirmed() {
   leave = true;
   router.push({ name: redirectPage });
 };
+
+
 onBeforeRouteLeave((to, from, next) =>{
   if (!leave) {
     triggerModal.value ++;
@@ -167,13 +176,41 @@ onBeforeRouteLeave((to, from, next) =>{
  
   redirectPage = to.name as string;
 });
-/*
-pourrait etre une bonne idee?
 
-function getRepairCost() : number {
-  return (100 - player.value.selectedShip.vitality) * 5 ?? 0;
+function getGameEndMessage() {
+  if (player.value.selectedShip.vitality <= 0) {
+    return "Game Over";
+  } else {
+    return "You Win!";
+  }
 };
-*/
+
+function getGameEndBody() {
+  if (player.value.selectedShip.vitality <= 0) {
+    return "Votre vaisseau a été détruit. Cliquer sur 'Retour au menu' pour quitter la partie";
+  } else {
+    return "Vous avez gagné la partie avec " + player.value.credits + " crédits galactique";
+  }
+};
+
+function getButtonMessage() {
+  if (player.value.selectedShip.vitality <= 0) {
+    return "Retour au menu";
+  } else {
+    return "Voir le classement";
+  }
+};
+
+function gameEnded() {
+  console.log("game ended");
+  if (player.value.selectedShip.vitality <= 0) {
+    router.push({ name: "Accueil" });
+    
+  } else {
+    router.push({ name: "Score" });
+  }
+  leave = true;
+};
 </script>
 <template>
         <ConfirmModal               
@@ -183,6 +220,12 @@ function getRepairCost() : number {
           body="Vos changements seront perdus. Voulez-vous vraiment quitter cette page ? "
           cancelButton="Non"
           confirmButton="Oui, quitter sans sauvegarder"/>
+        <NotifyModal               
+          @onModalConfirmed="gameEnded"
+          :trigger="gameEnd"
+          :title="getGameEndMessage()"
+          :body="getGameEndBody()"
+          :confirmButton="getButtonMessage()"/>
   <div>
     <div class="container">
       <div class="row">
