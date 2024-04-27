@@ -21,12 +21,6 @@ onMounted(async () => {
 
 //Fonction qui permet d'envoyer les informations du joueur et du vaisseau selectionné à la page de bataille
 const startGame = () => {
-  console.log(
-    "Starting game with name:",
-    name.value,
-    "and ship:",
-    selectedShip.value
-  );
   router.push({
     name: "Bataille",
     query: { name: name.value, selectedShip: selectedShip.value },
