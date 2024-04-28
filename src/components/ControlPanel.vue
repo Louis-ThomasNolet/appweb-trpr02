@@ -148,7 +148,7 @@ if (currentEnemy.value && currentEnemy.value.ship.vitality <= 0) {
             <div class="card-body text-white bg-dark">
               <div class="row">
                 <div class="col-4">
-                  <button class="btn btn-primary" @click="attack()">Attaquer</button>
+                  <button class="btn btn-primary" @click="attack()" id="Attack">Attaquer</button>
                 </div>
                 <div class="col-4">
                   <button class="btn btn-primary" @click="endMission()">Terminer la mission</button>

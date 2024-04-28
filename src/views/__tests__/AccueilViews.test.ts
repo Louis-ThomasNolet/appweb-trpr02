@@ -34,6 +34,8 @@ describe('Accueil.vue', () => {
         await wrapper.vm.$nextTick();
         await wrapper.find('form').trigger('submit');
         await router.isReady();
+        //faut surement faire dequoi pour attendre que la route soit changée
+
 
         expect(router.currentRoute.value.name).toBe('Bataille');
         expect(router.currentRoute.value.query.name).toBe('Player 1');
