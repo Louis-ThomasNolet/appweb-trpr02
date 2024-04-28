@@ -21,10 +21,14 @@ onMounted(async () => {
 
 //Fonction qui permet d'envoyer les informations du joueur et du vaisseau selectionné à la page de bataille
 const startGame = () => {
-  router.push({
-    name: "Bataille",
-    query: { name: name.value, selectedShip: selectedShip.value },
-  });
+  if (selectedShip.value !== "" && name.value !== "") {
+    router.push({
+      name: "Bataille",
+      query: { name: name.value, selectedShip: selectedShip.value },
+    });
+  } else {
+    console.error("selected ship is not defined or name is not defined ");
+  }
 };
 </script>
 <template>
@@ -53,7 +57,7 @@ const startGame = () => {
                 />
               </div>
               <div>
-                <label for="ship">Nom du vaisseau</label>
+                <label for="ship-select">Nom du vaisseau</label>
                 <select
                   v-model="selectedShip"
                   name="ships"
@@ -64,11 +68,7 @@ const startGame = () => {
                   <option value="" disabled selected>
                     Sélectionnez un vaisseau
                   </option>
-                  <option
-                    v-for="ship in ships"
-                    :key="ship.id"
-                    :value="ship.id"
-                  >
+                  <option v-for="ship in ships" :key="ship.id" :value="ship.id">
                     {{ ship.name }}
                   </option>
                 </select>
