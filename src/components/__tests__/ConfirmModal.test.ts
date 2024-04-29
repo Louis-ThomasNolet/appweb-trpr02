@@ -1,7 +1,7 @@
 import{describe, expect, it, vi} from 'vitest';
 import{mount} from '@vue/test-utils';
 import ConfirmModal from '../ConfirmModal.vue';
-//import {Modal} from 'bootstrap';
+  // Importation de la classe Modal de Bootstrap
 
 
 describe('ConfirmModal.vue', () => {
@@ -20,17 +20,7 @@ describe('ConfirmModal.vue', () => {
     expect(wrapper.find('button[name="annuler"]').exists()).toBe(true)
     expect(wrapper.find('button[name="confirmer"]').exists()).toBe(true)
   })
-/*
-  it('Sur modification du prop trigger, doit afficher la boite de dialogue.', async () => {
-    // Ce test ne fonctionne pas, mais il devrait et je ne trouve pas la solution :P
-    const spyBootstrap = vi.spyOn(Modal.prototype, 'show')
-    const wrapper = mount(ConfirmModal)
 
-    await wrapper.setProps({ trigger: 1 })
-
-    expect(spyBootstrap).toHaveBeenCalled()
-  })
-*/
   it('Sur confirmation, doit émettre un événement.', async () => {
     const wrapper = mount(ConfirmModal, {
       props: {
