@@ -12,8 +12,9 @@ const router = createRouter({
 describe('NavigationBar.vue', () => {
   it('Doit pouvoir aller sur la page classement', async () => {
    
+    router.push('/') // Reset la route au début de chaque test
     await router.isReady()
-    router.push('/') 
+
     const wrapper = mount(NavigationBar, {
       global: {
         plugins: [router]
@@ -21,17 +22,20 @@ describe('NavigationBar.vue', () => {
     })
 
     const routerSpy = vi.spyOn(router, 'push')
-    const linkScoreEl = wrapper.find('#Classement')
-    await linkScoreEl.trigger('click')  
 
-    expect(routerSpy).toHaveBeenCalledWith({name: 'Score'})
+    const linkAboutEl = wrapper.find('#classement') // Adapter le sélecteur selon ton besoin
+    await linkAboutEl.trigger('click')
+
+    expect(routerSpy).toHaveBeenCalledWith('/score') 
+  
 
   })
 
   it('Doit pouvoir aller sur la page d\'accueil', async () => {
 
-    await router.isReady()
-    router.push('/') 
+    router.push('/')
+    await router.isReady() 
+
     const wrapper = mount(NavigationBar, {
       global: {
         plugins: [router]
@@ -39,10 +43,12 @@ describe('NavigationBar.vue', () => {
     })
 
     const routerSpy = vi.spyOn(router, 'push')
-    const linkHomeEl = wrapper.find('#Star Battle')
-    await linkHomeEl.trigger('click')  
 
-    expect(routerSpy).toHaveBeenCalledWith({name: 'Accueil'})
+    
+    const linkPostsEl = wrapper.find('#accueil') 
+    await linkPostsEl.trigger('click')
+
+    expect(routerSpy).toHaveBeenCalledWith('/')
 
   })
 })
