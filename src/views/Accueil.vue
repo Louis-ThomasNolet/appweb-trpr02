@@ -75,7 +75,7 @@ const startGame = () => {
               </div>
               <br />
               <div>
-                <button type="submit" class="btn btn-primary">Commencer</button>
+                <button type="submit" class="btn btn-primary" id="start-button">Commencer</button>
               </div>
             </div>
           </form>

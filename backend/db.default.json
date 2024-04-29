@@ -49,6 +49,11 @@
       "id": "9b63",
       "name": "Test",
       "score": 1000
+    },
+    {
+      "id": "5aac",
+      "name": "player",
+      "score": 100
     }
   ],
   "ships": [
