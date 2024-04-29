@@ -18,4 +18,9 @@ export default class RankingService {
         const response: AxiosResponse<any> = await axios.post(this.API_URL + RANKING_PATH, { name, score });
         return response.data;
     }
+
+    async deleteRanking(id: number): Promise<any> {
+        const response: AxiosResponse<any> = await axios.delete(this.API_URL + RANKING_PATH + `/${id}`);
+        return response.data;
+    }
 }

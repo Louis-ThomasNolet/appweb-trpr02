@@ -4,7 +4,6 @@ Get http://127.0.0.1:3000/ranking
 ### Ajouter un joueur au tableau de pointage 
 Post http://127.0.0.1:3000/ranking
 content-type: application/json
-
 {
     "name": "Murielle Ellemure",
     "credit": 600
